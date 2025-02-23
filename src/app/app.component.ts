@@ -10,42 +10,13 @@ import { FormEventsProfilerTestComponent } from "./form-events-profiler-test.com
 import { ProfilerSingularEventsComponent } from "./profiler-singular-events.component";
 import { WithFormDataFeatureComponent } from "./with-form-data-feature.component";
 import { ArrayOfChildrenComponent } from "./data-store-test/array-of-children.component";
+import { ZodExampleComponent } from "./zod-example.component";
 
 @Component({
   selector: 'app-root',
-  imports: [JsonPipe, FormsModule, ReactiveFormsModule, ReactiveFormsArrayComponent, FormEventsProfilerTestComponent, ProfilerSingularEventsComponent, WithFormDataFeatureComponent, ArrayOfChildrenComponent],
+  imports: [ZodExampleComponent],
   template: `
-  <app-array-of-children />
-  <!-- <app-with-form-data-feature /> -->
-  <!-- <app-profiler-singular-events /> -->
-    <!-- <app-form-events-profiler-test />
-  <hr />
-    <app-reactive-forms-array />
-
-    <hr />
-
-    <form #myForm="ngForm">
-        <input [(ngModel)]="form.firstName" name="firstName" required/>
-        <input [(ngModel)]="form.lastName" name="lastName"/>
-        <input [(ngModel)]="form.signedTOS" type="checkbox" name="signedTOS"/>
-    </form> -->
-    
-    <!-- <pre>{{form.firstName() | json}}</pre>
-    <pre>{{form.lastName() | json}}</pre>
-    <pre>{{form.signedTOS() | json}}</pre>
-    <pre>valid: {{formData().valid}}</pre>
-    <pre>valid in store: {{bookStore.valid()}}</pre> -->
-
-    <hr />
-
-    <!-- <form [formGroup]="reactiveForm">
-        <input formControlName="firstName" />
-        <input formControlName="lastName" />
-        <input formControlName="signedTOS" />
-    </form>
-
-    <pre>reactive form val: {{reactiveForm.getRawValue() | json}}</pre>
-    <pre>formEventData: {{reactiveStore.formEventData() | json}}</pre> -->
+  <app-zod-example />
   `
 })
 export class AppComponent {
