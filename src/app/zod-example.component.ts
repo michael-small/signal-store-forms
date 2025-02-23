@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { raw_data, transformArrayToObject, zodify } from './zod-stuff/zod-csv';
-import { JsonPipe, KeyValuePipe } from '@angular/common';
+import { transformCSVToDataRecords, zodify } from './zod-stuff/zod-csv';
+import { KeyValuePipe } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -21,12 +21,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         }
     }
   `,
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZodExampleComponent {
-    types = zodify(transformArrayToObject(raw_data), ['number', 'string'])
-    constructor() {
-        console.log(zodify(transformArrayToObject(raw_data), ['number', 'string']))
-    }
+    raw_data = [
+        ['people', 'numbers'],
+        ['Jeff', '123'],
+        ['Jerry', '456']
+    ]
+
+    types = zodify(transformCSVToDataRecords(this.raw_data), ['number', 'string'])
 }
